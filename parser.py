@@ -5,8 +5,7 @@ import parser_library
 def htmltotokens(htmlstring, token = "", starttokenization = False, closingtag = False):
     for letter in htmlstring:
         if letter == '<': starttokenization = True; continue
-
-        if letter == '>': starttokenization = False; print(token); token = ""
+        if letter == '>': print(token); starttokenization = False;  token = ""
             
         if starttokenization: token += letter
 
