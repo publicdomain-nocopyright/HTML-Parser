@@ -9,9 +9,8 @@ def htmltotokens(htmlstring, token = "", starttokenization = False, closingtag =
             if letter == "/":
                 closingtag = True
 
-        if starttokenization == False:
-            if token != "": 
-                print(token)
+        if starttokenization == False and not token == "":
+            print(token)
 
         if letter == '<': starttokenization = True
         if letter == '>': starttokenization = False
