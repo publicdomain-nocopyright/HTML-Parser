@@ -1,5 +1,8 @@
 import parser_library
 
+def simplestatemachine():
+    pass
+
 # Tokenization is needed to easily select tokens and group, target them against other tokens.
 # Associate p start tag with p end tag. 
 def htmltotokens(htmlstring, token = "", starttokenization = False, closingtag = False):
