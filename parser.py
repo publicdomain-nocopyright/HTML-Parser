@@ -4,7 +4,7 @@ import parser_library
 # Associate p start tag with p end tag. 
 
 
-def starttokenization():
+def begintokenization():
     global tokenization
     tokenization = True
 
@@ -14,7 +14,7 @@ def stoptokenization():
 
 def htmltotokens(htmlstring, token = "", closingtag = False):
     for letter in htmlstring:
-        if letter == '<': starttokenization(); continue
+        if letter == '<': begintokenization(); continue
         if letter == '>':  stoptokenization(); print(token, closingtag);   token = ""; 
             
         if tokenization: token += letter
