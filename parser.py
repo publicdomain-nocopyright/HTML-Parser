@@ -11,12 +11,15 @@ def htmltostring(textfile):
 
 # Tokenization is needed to easily select tokens and group, target them against other tokens.
 # Associate p start tag with p end tag. 
-def htmltotokens(htmlstring, token = "", starttokenisation = False):
+def htmltotokens(htmlstring, token = "", starttokenisation = False, closingtag = False):
     for letter in htmlstring:
         
         if starttokenisation:
             if letter != '>':
                 token += letter
+                if letter == "/":
+                    closingtag = True
+
         if starttokenisation == False:
             if token != "": 
                 print(token)
@@ -26,7 +29,10 @@ def htmltotokens(htmlstring, token = "", starttokenisation = False):
         if letter == '>':
             starttokenisation = False
             print(token)
+            if closingtag:
+                print("It's a closing tag!")
             token = ""
+            closingtag = False
 
         #if token == "<html>":
         #    print(token)
