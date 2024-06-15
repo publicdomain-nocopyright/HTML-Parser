@@ -8,16 +8,29 @@ def htmltostring(textfile):
                 textstring += letter
     return textstring
 
-def htmltotokens(htmlstring):
-    token = ""
+
+# Tokenization is needed to easily select tokens and group, target them against other tokens.
+def htmltotokens(htmlstring, token = "", starttokenisation = False):
     for letter in htmlstring:
-        token += letter
-        print(token)
-        if token == "<html>":
+        
+        if starttokenisation:
+            token += letter
+        if starttokenisation == False:
+            if token != "": 
+                print(token)
+
+        if letter == '<':
+            starttokenisation = True
+        if letter == '>':
+            starttokenisation = False
             print(token)
             token = ""
 
-        print(letter, end="")
+        #if token == "<html>":
+        #    print(token)
+        #    token = ""
+#
+        #print(letter, end="")
 
 
 htmltotokens(htmltostring("example.html"))
