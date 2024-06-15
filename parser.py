@@ -21,12 +21,11 @@ try:
                         print("|_|", end="")
                     else:
                          print(letter, end="")
-    print("\nNote: Now Detects ASCII spaces")
+     print("\nNote: Now Detects ASCII spaces")
 
 
 
 
     input()
-except():
-    print()
-    input()
+except Exception as e:
+    print(e)
