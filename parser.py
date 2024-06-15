@@ -1,5 +1,6 @@
 try: 
     print("Welcome to the HTML Parser")
+    print("HTML parsing is the process of taking raw HTML code, reading it, and generating a DOM tree object structure from it.")
 
     print(open("example.html").read())
 
@@ -21,7 +22,7 @@ try:
                         print("|_|", end="")
                     else:
                          print(letter, end="")
-     print("\nNote: Now Detects ASCII spaces")
+    print("\nNote: Now Detects ASCII spaces")
 
 
 
