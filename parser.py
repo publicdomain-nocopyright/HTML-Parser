@@ -22,8 +22,6 @@ def htmltotokens(htmlstring, token = "", closingtag = False):
 
 
 
-
-
        
            
            
