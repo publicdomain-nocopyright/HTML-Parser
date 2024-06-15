@@ -4,11 +4,10 @@ import parser_library
 # Associate p start tag with p end tag. 
 def htmltotokens(htmlstring, token = "", starttokenization = False, closingtag = False):
     for letter in htmlstring:
-        if starttokenization:
-            if letter != '>':
-                token += letter
-                if letter == "/":
-                    closingtag = True
+        if starttokenization and not letter == '>':
+            token += letter
+            if letter == "/":
+                closingtag = True
 
         if starttokenization == False:
             if token != "": 
