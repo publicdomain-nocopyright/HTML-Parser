@@ -14,7 +14,8 @@ def htmltotokens(htmlstring, token = "", starttokenisation = False):
     for letter in htmlstring:
         
         if starttokenisation:
-            token += letter
+            if letter != '>':
+                token += letter
         if starttokenisation == False:
             if token != "": 
                 print(token)
