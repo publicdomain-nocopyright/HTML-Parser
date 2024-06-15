@@ -4,20 +4,22 @@ import parser_library
 # Associate p start tag with p end tag. 
 def htmltotokens(htmlstring, token = "", starttokenization = False, closingtag = False):
     for letter in htmlstring:
-        if starttokenization and not letter == '>': token += letter
-        if starttokenization and letter == "/": closingtag = True
-        if starttokenization == False and not token == "": print(token)
-
-        if letter == '<': starttokenization = True
-        if letter == '>': starttokenization = False
-
-        if letter == '>':
+        if letter == '<': 
+            starttokenization = True
+            continue
+        if letter == '>': 
+            starttokenization = False
             print(token)
             token = ""
+            
+        if starttokenization: token += letter
 
-        if letter == '>' and closingtag: 
-            print("It's a closing tag!")
-            closingtag = False
+        if starttokenization and letter == "/": closingtag = True
+        #if starttokenization == False and not token == "": print(token)
+
+       
+           
+           
 
 
 htmltotokens(parser_library.htmltostring("example.html"))
