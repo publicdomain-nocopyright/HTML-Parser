@@ -21,8 +21,7 @@ class tokenizer():
             if self.tokenization: token += letter
             if self.tokenization and letter == "/": closingtag = True
 
-thetokenizer = tokenizer()
-thetokenizer.htmltotokens(parser_library.htmltostring("example.html"))
+tokenizer().htmltotokens(parser_library.htmltostring("example.html"))
 
 print()
 print("Tokenization")
