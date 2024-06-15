@@ -15,8 +15,7 @@ try:
     print("__________________")
 
     with open("example.html") as file:
-        content = file.read().replace("\n", "")
-        for line in content:
+        for line in file.read().replace("\n", ""):
                 for letter in line:
                     if letter == " ":
                         print("|_|", end="")
