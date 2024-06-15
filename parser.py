@@ -15,7 +15,7 @@ def stoptokenization():
 def htmltotokens(htmlstring, token = "", closingtag = False):
     for letter in htmlstring:
         if letter == '<': begintokenization(); continue
-        if letter == '>':  stoptokenization(); print(token, closingtag);   token = ""; 
+        if letter == '>':  stoptokenization(); print(token, closingtag); token = ""; 
             
         if tokenization: token += letter
         if tokenization and letter == "/": closingtag = True
