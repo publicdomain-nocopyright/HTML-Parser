@@ -15,18 +15,27 @@ try:
     print("Note: The HTML5 Doctype requires an ASCII space.")
     print("__________________")
 
-    with open("example.html") as file:
-        for line in file.read().replace("\n", ""):
-                for letter in line:
-                    if letter == " ":
-                        print("|_|", end="")
-                    else:
-                         print(letter, end="")
-    print("\nNote: Now Detects ASCII spaces")
 
+    def htmlfiletostring(htmlfile, html=""):
+        with open(htmlfile) as file:
+            for line in file.read().replace("\n", ""):
+                    for letter in line:
+                        html += letter 
+                        if letter == " ":
+                            print("|_|", end="")
+                        else:
+                            print(letter, end="")
+        print()
+        return html
+        print("\nNote: Now Detects ASCII spaces")
 
+    def htmltotokens(htmlstring):
+        for letter in htmlstring:
+            print(letter, end="")
+        pass
 
-
+    print()
+    print(htmltotokens(htmlfiletostring("example.html")))
     input()
 except Exception as e:
     print(e)
