@@ -3,13 +3,13 @@ import parser_library
 # Tokenization is needed to easily select tokens and group, target them against other tokens.
 # Associate p start tag with p end tag. 
 
-def htmltotokens(htmlstring, token = "", starttokenization = False, closingtag = False):
+def htmltotokens(htmlstring, token = "", begintokenization = False, closingtag = False):
     for letter in htmlstring:
-        if letter == '<': starttokenization = True; continue
-        if letter == '>': print(token, closingtag); starttokenization = False;  token = ""; 
+        if letter == '<': begintokenization = True; continue
+        if letter == '>': print(token, closingtag); begintokenization = False;  token = ""; 
             
-        if starttokenization: token += letter
-        if starttokenization and letter == "/": closingtag = True
+        if begintokenization: token += letter
+        if begintokenization and letter == "/": closingtag = True
 
 htmltotokens(parser_library.htmltostring("example.html"))
 
