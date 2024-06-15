@@ -1,6 +1,5 @@
 import parser_library
 
-
 # Tokenization is needed to easily select tokens and group, target them against other tokens.
 # Associate p start tag with p end tag. 
 def htmltotokens(htmlstring, token = "", starttokenization = False, closingtag = False):
@@ -15,10 +14,10 @@ def htmltotokens(htmlstring, token = "", starttokenization = False, closingtag =
             if token != "": 
                 print(token)
 
-        if letter == '<':
-            starttokenization = True
+        if letter == '<': starttokenization = True
+        if letter == '>': starttokenization = False
+
         if letter == '>':
-            starttokenization = False
             print(token)
             if closingtag:
                 print("It's a closing tag!")
