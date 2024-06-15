@@ -1,41 +1,25 @@
-try: 
-    print("Welcome to the HTML Parser")
-    print("HTML parsing is the process of taking raw HTML code, reading it, and generating a DOM tree object structure from it.")
+def htmltostring(textfile):
+    textstring = "" 
+    with open(textfile) as file:
+        for line in file.read():
+            for letter in line:
+                if letter == '\n':
+                    continue
+                textstring += letter
+    return textstring
 
-    print(open("example.html").read())
+def htmltotokens(htmlstring):
+    token = ""
+    for letter in htmlstring:
+        token += letter
+        print(token)
+        if token == "<html>":
+            print(token)
+            token = ""
 
-    print("__________________")
-
-    print("Tokenization")
-
-    tokens = {}
-    with open("example.html") as file:
-        content = file.read().replace(" ", "").replace("\n", "").replace("\t", "")
-        print(content)
-    print("Note: The HTML5 Doctype requires an ASCII space.")
-    print("__________________")
+        print(letter, end="")
 
 
-    def htmlfiletostring(htmlfile, html=""):
-        with open(htmlfile) as file:
-            for line in file.read().replace("\n", ""):
-                    for letter in line:
-                        html += letter 
-                        if letter == " ":
-                            print("|_|", end="")
-                        else:
-                            print(letter, end="")
-        print()
-        return html
-        print("\nNote: Now Detects ASCII spaces")
-
-    def htmltotokens(htmlstring):
-        for letter in htmlstring:
-            print(letter, end="")
-        pass
-
-    print()
-    print(htmltotokens(htmlfiletostring("example.html")))
-    input()
-except Exception as e:
-    print(e)
+htmltotokens(htmltostring("example.html"))
+print()
+print("Tokenizationm")
