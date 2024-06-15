@@ -1,19 +1,10 @@
-def htmltostring(textfile):
-    textstring = "" 
-    with open(textfile) as file:
-        for line in file.read():
-            for letter in line:
-                if letter == '\n':
-                    continue
-                textstring += letter
-    return textstring
+import parser_library
 
 
 # Tokenization is needed to easily select tokens and group, target them against other tokens.
 # Associate p start tag with p end tag. 
 def htmltotokens(htmlstring, token = "", starttokenization = False, closingtag = False):
     for letter in htmlstring:
-        
         if starttokenization:
             if letter != '>':
                 token += letter
@@ -41,6 +32,6 @@ def htmltotokens(htmlstring, token = "", starttokenization = False, closingtag =
         #print(letter, end="")
 
 
-htmltotokens(htmltostring("example.html"))
+htmltotokens(parser_library.htmltostring("example.html"))
 print()
 print("Tokenization")
