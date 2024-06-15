@@ -10,6 +10,7 @@ def htmltostring(textfile):
 
 
 # Tokenization is needed to easily select tokens and group, target them against other tokens.
+# Associate p start tag with p end tag. 
 def htmltotokens(htmlstring, token = "", starttokenisation = False):
     for letter in htmlstring:
         
