@@ -13,8 +13,10 @@ def htmltotokens(htmlstring, token = "", starttokenization = False, closingtag =
 
         if letter == '>':
             print(token)
-            if closingtag: print("It's a closing tag!")
             token = ""
+            
+        if letter == '>' and closingtag: 
+            print("It's a closing tag!")
             closingtag = False
 
         #if token == "<html>":
