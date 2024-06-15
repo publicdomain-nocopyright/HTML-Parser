@@ -6,11 +6,10 @@ def htmltotokens(htmlstring, token = "", starttokenization = False, closingtag =
     for letter in htmlstring:
         if letter == '<': starttokenization = True; continue
 
-        if starttokenization and letter == "/": closingtag = True
-
         if letter == '>': print(token, closingtag); starttokenization = False;  token = ""; 
             
         if starttokenization: token += letter
+        if starttokenization and letter == "/": closingtag = True
 
 
 
