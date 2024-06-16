@@ -3,7 +3,24 @@ import parser_library
 # Tokenization is needed to easily select tokens and group, target them against other tokens.
 # Associate p start tag with p end tag. 
 
+
+
 def htmltotokens(htmlstring):
+    attributes =  {"is_closing_tag": True, "waffles": 5}
+    initattributes = attributes.copy()  # Call the copy method
+    def resetAttributes():
+        nonlocal attributes 
+        nonlocal initattributes
+        attributes = initattributes.copy()  # Copy again to reset to the initial state
+
+    print(attributes)
+    attributes["waffles"] = 4
+    print("init:" + str(initattributes))
+    print(attributes)
+    resetAttributes()
+    print("this suppose to be 5")
+    print(attributes)
+    
     tokens = []
     token = ""
     is_tokenizing = False
