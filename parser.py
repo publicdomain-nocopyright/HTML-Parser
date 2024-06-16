@@ -6,7 +6,7 @@ import parser_library
 
 
 def htmltotokens(htmlstring):
-    attributes =  {"is_closing_tag": True, "waffles": 5}
+    attributes =  {"is_closing_tag": False, "waffles": 5}
     initattributes = attributes.copy()  # Call the copy method
     def resetAttributes():
         nonlocal attributes 
@@ -20,7 +20,7 @@ def htmltotokens(htmlstring):
     resetAttributes()
     print("this suppose to be 5")
     print(attributes)
-    
+
     tokens = []
     token = ""
     is_tokenizing = False
