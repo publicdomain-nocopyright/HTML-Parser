@@ -3,25 +3,24 @@ import parser_library
 # Tokenization is needed to easily select tokens and group, target them against other tokens.
 # Associate p start tag with p end tag. 
 
-class tokenizer():
-    def __init__(self):
-        self.tokenization = False
+def htmltotokens(htmlstring):
+    tokens = []
+    token = ""
+    is_tokenizing = False
+    is_closing_tag = False
 
-    def begintokenization(self):
-        self.tokenization = True
+    for letter in htmlstring:
+        if letter == '<': is_tokenizing = True; is_closing_tag = False; continue      
+        if letter == '>': is_tokenizing = False; tokens.append((token, is_closing_tag)); token = ""; continue;
 
-    def stoptokenization(self):
-        self.tokenization = False
+        if is_tokenizing:
+            if letter == '/':
+                is_closing_tag = True
+            token += letter
 
-    def htmltotokens(self, htmlstring, token="", closingtag=False):
-        for letter in htmlstring:
-            if letter == '<': self.begintokenization(); continue
-            if letter == '>': self.stoptokenization(); print(token, closingtag); token = ""; 
-                
-            if self.tokenization: token += letter
-            if self.tokenization and letter == "/": closingtag = True
+    return tokens
 
-tokenizer().htmltotokens(parser_library.htmltostring("example.html"))
+tokens = htmltotokens(parser_library.htmltostring("example.html"))
 
-print()
-print("Tokenization")
+for token in tokens:
+    print(token)
