@@ -7,10 +7,10 @@ import parser_library
 
 def htmltotokens(htmlstring):
     attributes =  {"is_closing_tag": False, "waffles": 5}
-    initattributes = attributes.copy()  # Call the copy method
+    initattributes = attributes.copy()  
     def resetAttributes():
         nonlocal attributes, initattributes 
-        attributes = initattributes.copy()  # Copy again to reset to the initial state
+        attributes = initattributes.copy() 
 
     print(attributes)
     attributes["waffles"] = 4
