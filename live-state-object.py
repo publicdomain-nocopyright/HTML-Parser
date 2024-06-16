@@ -12,12 +12,19 @@ def create_live_object():
 
     return set_state, reset_state, get_state
 
-# Create a new live object instance
-set_state, reset_state, get_state = create_live_object()
+# Create first live object instance
+set_state1, reset_state1, get_state1 = create_live_object()
+
+# Create second live object instance
+set_state2, reset_state2, get_state2 = create_live_object()
 
 # Example usage
-set_state("Active")
-print(get_state())  # Output: Active
+set_state1("Active")
+set_state2("Inactive")
 
-reset_state()
-print(get_state())  # Output: None
+print(get_state1())  # Output: Active
+print(get_state2())  # Output: Inactive
+
+reset_state1()
+print(get_state1())  # Output: None
+print(get_state2())  # Output: Inactive
