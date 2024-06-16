@@ -1,30 +1,33 @@
-def create_live_object():
-    live_object = {"state": None}
+def create_live_object(*state_names):
+    live_object = {state_name: None for state_name in state_names}
 
-    def set_state(new_state):
-        live_object["state"] = new_state
+    def set_states(**kwargs):
+        for state_name, new_state in kwargs.items():
+            if state_name in live_object:
+                live_object[state_name] = new_state
+            else:
+                raise KeyError(f"State '{state_name}' does not exist")
 
-    def reset_state():
-        live_object["state"] = None
+    def reset_states(*state_names):
+        for state_name in state_names:
+            if state_name in live_object:
+                live_object[state_name] = None
+            else:
+                raise KeyError(f"State '{state_name}' does not exist")
 
-    def get_state():
-        return live_object["state"]
+    def get_states(*state_names):
+        return {state_name: live_object[state_name] for state_name in state_names if state_name in live_object}
 
-    return set_state, reset_state, get_state
+    return set_states, reset_states, get_states
 
-# Create first live object instance
-set_state1, reset_state1, get_state1 = create_live_object()
-
-# Create second live object instance
-set_state2, reset_state2, get_state2 = create_live_object()
+# Create a new live object instance with multiple states
+set_states, reset_states, get_states = create_live_object("state1", "state2", "state3")
 
 # Example usage
-set_state1("Active")
-set_state2("Inactive")
+set_states(state1="Active1", state2="Active2", state3="Active3")
 
-print(get_state1())  # Output: Active
-print(get_state2())  # Output: Inactive
+print(get_states("state1", "state2", "state3"))  # Output: {'state1': 'Active1', 'state2': 'Active2', 'state3': 'Active3'}
 
-reset_state1()
-print(get_state1())  # Output: None
-print(get_state2())  # Output: Inactive
+reset_states("state1", "state2")
+
+print(get_states("state1", "state2", "state3"))  # Output: {'state1': None, 'state2': None, 'state3': 'Active3'}
