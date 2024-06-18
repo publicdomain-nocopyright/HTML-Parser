@@ -15,8 +15,14 @@ def htmltotokens(htmlstring):
 
     # Tag processing
     for letter in htmlstring:
-        if letter == '<': is_tokenizing = True; attributes = default_attributes.copy(); continue      
-        if letter == '>': is_tokenizing = False; tokens.append((token, attributes)); token = ""; continue;
+        if letter == '<': is_tokenizing = True     
+        if letter == '<': attributes = default_attributes.copy();
+        if letter == '<': continue
+        
+        if letter == '>': is_tokenizing = False
+        if letter == '>': tokens.append((token, attributes)); 
+        if letter == '>': token = ""
+        if letter == '>': continue
 
         if is_tokenizing:
             if letter == '/':
