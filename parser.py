@@ -18,14 +18,16 @@ def htmltotokens(htmlstring):
     for letter in htmlstring:
         if letter == '<': 
             is_tokenizing = True     
+            token = ""
             attributes = default_attributes.copy();
             continue
         
         if letter == '>': 
-            is_tokenizing = False
-            tokens.append((token, attributes)); 
-            token = ""
-            continue
+            if token is not None: 
+                tokens.append((token, attributes)); 
+                token = None
+                is_tokenizing = False
+                continue
 
         if is_tokenizing:
             if letter == '/':
@@ -40,6 +42,9 @@ tokens = htmltotokens(parser_library.htmltostring("example.html"))
 
 print("____________")
 for token in tokens:
+    if token[0] is None:
+        print("stopped here" + str(token))
+        input()
     for letter in token[0]:
         if letter == ' ':
             break
