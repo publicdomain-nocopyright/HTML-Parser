@@ -6,19 +6,19 @@ import parser_library
 
 
 
-def htmltotokens(htmlstring):
-    tokens : str = []
-    token : str = str("")
+def htmltotokens(htmlstring : str):
+    token  : str = str("")
+    tokens : list[str] = []
 
-    default_attributes = {"is_closing_tag": False, "waffles": 5} 
+    default_attributes : dict = {"is_closing_tag": False, "waffles": 5} 
 
-    is_tokenizing = False
+    is_tokenizing : bool = False
 
     # Tag Scanning, processing, tokenization
     for letter in htmlstring:
         if letter == '<': 
             is_tokenizing = True; 
-            token : str; 
+            token = str("")
             attributes = default_attributes.copy();
             continue
         
