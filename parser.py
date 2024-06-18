@@ -7,8 +7,8 @@ import parser_library
 
 
 def htmltotokens(htmlstring):
-    tokens = []
-    token = ""
+    tokens : str = []
+    token : str = str("")
 
     default_attributes = {"is_closing_tag": False, "waffles": 5} 
 
@@ -18,12 +18,14 @@ def htmltotokens(htmlstring):
     for letter in htmlstring:
         if letter == '<': 
             is_tokenizing = True; 
-            token = ""; attributes = default_attributes.copy();
+            token : str; 
+            attributes = default_attributes.copy();
             continue
         
         if letter == '>': 
             if token is not None: 
-                tokens.append((token, attributes)); token = None
+                tokens.append((token, attributes)); 
+                token = str("")
                 is_tokenizing = False
                 continue
 
