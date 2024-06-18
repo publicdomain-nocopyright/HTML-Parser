@@ -15,7 +15,7 @@ def htmltotokens(htmlstring):
 
     for letter in htmlstring:
         if letter == '<': is_tokenizing = True; attributes.update(init_attributes); continue      
-        if letter == '>': is_tokenizing = False; tokens.append((token, attributes["is_closing_tag"])); token = ""; continue;
+        if letter == '>': is_tokenizing = False; tokens.append((token, attributes)); token = ""; continue;
 
         if is_tokenizing:
             if letter == '/':
