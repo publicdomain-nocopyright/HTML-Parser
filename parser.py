@@ -9,8 +9,10 @@ import parser_library
 def htmltotokens(htmlstring : str):
     token  : str = str("")
     tokens : list[str] = []
+    letter : str = str('')
 
-    default_attributes : dict = {"is_closing_tag": False, "waffles": 5} 
+    default_attributes : dict[str, any] = {"is_closing_tag": False, "waffles": 5} 
+    attributes : dict[str, any] 
 
     is_tokenizing : bool = False
 
