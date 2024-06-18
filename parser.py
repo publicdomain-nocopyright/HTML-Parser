@@ -13,6 +13,7 @@ def htmltotokens(htmlstring):
 
     is_tokenizing = False
 
+    # Tag processing
     for letter in htmlstring:
         if letter == '<': is_tokenizing = True; attributes = default_attributes.copy(); continue      
         if letter == '>': is_tokenizing = False; tokens.append((token, attributes)); token = ""; continue;
