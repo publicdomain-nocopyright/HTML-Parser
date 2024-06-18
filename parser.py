@@ -9,12 +9,12 @@ def htmltotokens(htmlstring):
     tokens = []
     token = ""
 
-    init_attributes = {"is_closing_tag": False, "waffles": 5} 
-    
+    default_attributes = {"is_closing_tag": False, "waffles": 5} 
+
     is_tokenizing = False
 
     for letter in htmlstring:
-        if letter == '<': is_tokenizing = True; attributes = init_attributes.copy(); continue      
+        if letter == '<': is_tokenizing = True; attributes = default_attributes.copy(); continue      
         if letter == '>': is_tokenizing = False; tokens.append((token, attributes)); token = ""; continue;
 
         if is_tokenizing:
