@@ -14,7 +14,7 @@ def htmltotokens(htmlstring):
 
     is_tokenizing = False
 
-    # Tag processing, tokenization
+    # Tag Scanning, processing, tokenization
     for letter in htmlstring:
         if letter == '<': is_tokenizing = True     
         if letter == '<': attributes = default_attributes.copy();
