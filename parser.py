@@ -12,7 +12,7 @@ def htmltotokens(htmlstring : str):
     letter : str = str('')
 
     default_attributes : dict[str, any] = {"is_closing_tag": False, "waffles": 5} 
-    attributes : dict[str, any] 
+    attributes : dict[str, any] = default_attributes.copy()
 
     is_tokenizing : bool = False
 
