@@ -3,7 +3,6 @@ def attributes_parsing():
     init_attributes = attributes.copy() 
     
     def reset_attributes():
-        nonlocal attributes
         attributes.update(init_attributes)
     
     print("Initial attributes:", attributes)
