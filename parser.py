@@ -17,15 +17,13 @@ def htmltotokens(htmlstring):
     # Tag Scanning, processing, tokenization
     for letter in htmlstring:
         if letter == '<': 
-            is_tokenizing = True     
-            token = ""
-            attributes = default_attributes.copy();
+            is_tokenizing = True; 
+            token = ""; attributes = default_attributes.copy();
             continue
         
         if letter == '>': 
             if token is not None: 
-                tokens.append((token, attributes)); 
-                token = None
+                tokens.append((token, attributes)); token = None
                 is_tokenizing = False
                 continue
 
