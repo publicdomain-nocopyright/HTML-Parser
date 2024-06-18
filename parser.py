@@ -14,7 +14,7 @@ def htmltotokens(htmlstring):
     is_tokenizing = False
 
     for letter in htmlstring:
-        if letter == '<': is_tokenizing = True; attributes.update(init_attributes); continue      
+        if letter == '<': is_tokenizing =  True; attributes.update(init_attributes); continue      
         if letter == '>': is_tokenizing = False; tokens.append((token, attributes)); token = ""; continue;
 
         if is_tokenizing:
