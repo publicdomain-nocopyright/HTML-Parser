@@ -8,17 +8,16 @@ import parser_library
 def htmltotokens(htmlstring):
     tokens = []
     token = ""
-    attributes = {"is_closing_tag": False, "waffles": 5}
-    init_attributes = attributes.copy() 
     is_tokenizing = False
+    is_closing_tag = False
 
     for letter in htmlstring:
-        if letter == '<': is_tokenizing = True; attributes.update(init_attributes); continue      
-        if letter == '>': is_tokenizing = False; tokens.append((token, attributes["is_closing_tag"])); token = ""; continue;
+        if letter == '<': is_tokenizing = True; is_closing_tag = False; continue      
+        if letter == '>': is_tokenizing = False; tokens.append((token, is_closing_tag)); token = ""; continue;
 
         if is_tokenizing:
             if letter == '/':
-                attributes["is_closing_tag"] = True
+                is_closing_tag = True
             token += letter
 
     return tokens

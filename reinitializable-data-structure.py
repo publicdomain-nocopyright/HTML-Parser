@@ -1,7 +1,6 @@
 def html_attributes_parsing():
     attributes = {"is_closing_tag": False, "waffles": 5}
     init_attributes = attributes.copy() 
-        
     
     print("Initial attributes:", attributes)
     
