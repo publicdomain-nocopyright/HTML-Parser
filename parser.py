@@ -2,6 +2,7 @@ import parser_library
 
 # Tokenization is needed to easily select tokens and group, target them against other tokens.
 # Associate p start tag with p end tag. 
+# TODO: Tags nesting support and text association with tags.
 
 
 
@@ -28,6 +29,8 @@ def htmltotokens(htmlstring):
             if letter == '/':
                 attributes["is_closing_tag"] = True
             token += letter
+        else:
+            print(letter)
 
     return tokens
 
