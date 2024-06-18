@@ -1,4 +1,4 @@
-def somefunction():
+def attributes_parsing():
     attributes = {"is_closing_tag": False, "waffles": 5}
     init_attributes = attributes.copy() 
     
@@ -14,4 +14,5 @@ def somefunction():
     reset_attributes()
     print("Reset attributes:", attributes)
 
-somefunction()
+
+attributes_parsing()
