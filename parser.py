@@ -36,5 +36,11 @@ def htmltotokens(htmlstring):
 
 tokens = htmltotokens(parser_library.htmltostring("example.html"))
 
+print("____________")
 for token in tokens:
-    print(token)
+    skiptoken = False
+    for letter in token[0]:
+        if letter == ' ':
+            skiptoken = True
+            break  # Skip the rest of the token if a space is encountered
+        print(letter, end="")
