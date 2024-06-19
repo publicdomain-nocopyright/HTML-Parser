@@ -14,22 +14,22 @@ def htmltotokens(htmlstring : str):
     default_attributes : dict[str, any] = {"is_closing_tag": False, "waffles": 5} 
     attributes : dict[str, any] = default_attributes.copy()
 
-    is_tokenizing : bool = False
+    tokenizing : bool = False
 
     # Tag Scanning, processing, tokenization
     for letter in htmlstring:
         if letter == '<': 
             token = None
             attributes = default_attributes.copy();
-            is_tokenizing = True; 
+            tokenizing = True; 
             continue
         
 
-        if is_tokenizing:
+        if tokenizing:
             if token is None: 
                 token = "" 
             if letter == '>':
-                 is_tokenizing = False; 
+                 tokenizing = False; 
             if token is not None and not letter == '>':
                 token += letter
                 if letter == '/':
@@ -38,9 +38,9 @@ def htmltotokens(htmlstring : str):
         else:
             print(letter)
 
-        if not is_tokenizing and token is not None:
+        if not tokenizing and token is not None:
             tokens.append((token, attributes)); 
-            is_tokenizing = False
+            tokenizing = False
             token = None
             continue
  
