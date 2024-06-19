@@ -7,7 +7,7 @@ import parser_library
 
 
 def htmltotokens(htmlstring : str):
-    token  : str = str("")
+    token  : str = None
     tokens : list[str] = []
     letter : str = str('')
 
@@ -28,6 +28,8 @@ def htmltotokens(htmlstring : str):
         if is_tokenizing:
             if token is None: 
                 token = "" 
+            if letter == '>':
+                 is_tokenizing = False; 
             if token is not None and not letter == '>':
                 token += letter
                 if letter == '/':
@@ -36,12 +38,12 @@ def htmltotokens(htmlstring : str):
         else:
             print(letter)
 
-        if letter == '>': 
-            if token is not None: 
-                tokens.append((token, attributes)); 
-                is_tokenizing = False
-                del token
-                continue
+        if not is_tokenizing and token is not None:
+            tokens.append((token, attributes)); 
+            is_tokenizing = False
+            token = None
+            continue
+ 
     return tokens
 
 tokens = htmltotokens(parser_library.htmltostring("example.html"))
