@@ -30,7 +30,7 @@ def htmltotokens(htmlstring : str):
                 token = "" 
             if letter == '>':
                  tokenizing = False; 
-            if token is not None and not letter == '>':
+            if token is not None and letter is not '>':
                 token += letter
                 if letter == '/':
                     attributes["is_closing_tag"] = True
