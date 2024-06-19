@@ -28,7 +28,7 @@ def htmltotokens(htmlstring : str):
         if tokenizing:
             if token is None: 
                 token = "" 
-            if letter == '>':
+            if letter is '>':
                  tokenizing = False; 
             if token is not None and letter is not '>':
                 token += letter
