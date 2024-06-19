@@ -28,7 +28,7 @@ def htmltotokens(htmlstring : str):
             if token is not None: 
                 tokens.append((token, attributes)); 
                 is_tokenizing = False
-                token = None
+                del token
                 continue
 
         if is_tokenizing:
