@@ -20,18 +20,19 @@ def htmltotokens(htmlstring : str):
     for letter in htmlstring:
         if letter == '<': 
             is_tokenizing = True; 
-            token = str("")
+            token = None
             attributes = default_attributes.copy();
             continue
         
         if letter == '>': 
             if token is not None: 
                 tokens.append((token, attributes)); 
-                token = str("")
+                token = None
                 is_tokenizing = False
                 continue
 
         if is_tokenizing:
+            if token is None: token = str("")  
             if letter == '/':
                 attributes["is_closing_tag"] = True
             token += letter
