@@ -19,9 +19,9 @@ def htmltotokens(htmlstring : str):
     # Tag Scanning, processing, tokenization
     for letter in htmlstring:
         if letter == '<': 
-            is_tokenizing = True; 
             token = None
             attributes = default_attributes.copy();
+            is_tokenizing = True; 
             continue
         
         if letter == '>': 
