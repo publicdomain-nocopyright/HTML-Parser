@@ -24,29 +24,30 @@ def htmltotokens(htmlstring : str):
             is_tokenizing = True; 
             continue
         
+
+        if is_tokenizing:
+            if token is None: 
+                token = "" 
+            if token is not None and not letter == '>':
+                token += letter
+                if letter == '/':
+                    attributes["is_closing_tag"] = True
+            
+        else:
+            print(letter)
+
         if letter == '>': 
             if token is not None: 
                 tokens.append((token, attributes)); 
                 is_tokenizing = False
                 del token
                 continue
-
-        if is_tokenizing:
-            if token is None: 
-                token = "" 
-            if token is not None:
-                token += letter
-            if letter == '/':
-                attributes["is_closing_tag"] = True
-            
-        else:
-            print(letter)
-
     return tokens
 
 tokens = htmltotokens(parser_library.htmltostring("example.html"))
 
 print("____________")
+print(tokens)
 for token in tokens:
     if token[0] is None:
         print("stopped here" + str(token))
