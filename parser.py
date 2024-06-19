@@ -26,10 +26,8 @@ def htmltotokens(htmlstring : str):
         
 
         if tokenizing:
-            if letter is '>':
-                 tokenizing = not tokenizing; 
-            if token is None: 
-                token = "" 
+            if letter is '>': tokenizing = not tokenizing; 
+            if token is None: token = "" 
             if token is not None and letter is not '>':
                 token += letter
                 if letter == '/':
