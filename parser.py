@@ -16,7 +16,7 @@ def htmltotokens(htmlstring : str):
 
     tokenizing : bool = False
 
-    # Tag Scanning, processing, tokenization, html tag markers (<>) capture
+    # Tag Scanning, processing, tokenization, html tag markers (<>) and tag-name capture
     for letter in htmlstring:
         if letter is '<': 
             token = None
