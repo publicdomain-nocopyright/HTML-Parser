@@ -13,7 +13,6 @@ def htmltotokens(htmlstring : str = None):
 
     default_attributes : dict[str, any] = {"is_closing_tag": False, 'text': 'some text',"test": True} 
 
-
     # Tokenization definition, Capture tokens
     tokenization : dict[str,any]
     tokenization = {
@@ -25,23 +24,18 @@ def htmltotokens(htmlstring : str = None):
     }
 
     def start_tokenization():
-        nonlocal tokenization
         tokenization['state'] = 'running'
         tokenization['tokenizing'] = True
-        tokenization['token'] = None #reset_token
-        tokenization['attributes'] = default_attributes.copy() #reset_attributes
+        tokenization['token'] = None 
+        tokenization['attributes'] = default_attributes.copy() 
 
     def stop_tokenization():
-        nonlocal tokenization
         tokenization['state'] = 'stopped'
         tokenization['tokenizing'] = False
         if 'tokens' not in tokenization:
             tokenization['tokens'] = []
 
-        
-        
     def tokenize():
-        nonlocal tokenization
         for letter in htmlstring:
             if letter == '<':
                 start_tokenization()
