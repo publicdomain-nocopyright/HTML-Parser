@@ -47,7 +47,7 @@ def htmltotokens(htmlstring : str = None):
 
             if letter == '>':
                 stop_tokenization()
-                tokenization['tokens'].append([(tokenization["token"], tokenization["attributes"])]); 
+                tokenization['tokens'].append( [tokenization["token"], tokenization["attributes"]] ); 
     
             if not tokenization['tokenizing']:
                 if letter != '>':
