@@ -1,7 +1,4 @@
-# parser.py - main project file.
-#   Tokenization is the process of splitting text into smaller units called tokens, typically words or phrases, for further analysis.
 import parser_library
-
 
 # Tokenization is needed to easily select tokens and group, target them against other tokens.
 # Associate p start tag with p end tag. 
@@ -9,42 +6,11 @@ import parser_library
 
 
 
+
 def htmltotokens(htmlstring : str = None):
     token  : str = None
     tokens : list[str] = []
     letter : str = None
-
-
-    # Capture tokens
-    tokenization : dict[str,any]
-    tokenization = {
-    'state'     : 'stopped',
-    'tokenizing':  False,
-    'token'     :  None,
-    'tokens    ':  [],
-    'attributes':  default_attributes.copy()
-    }
-
-    def start_tokenization():
-        tokenization['state'] = 'running'
-        tokenization['tokenizing'] = True
-        tokenization['token'] = None #reset_token
-        tokenization['attributes'] = default_attributes.copy() #reset_attributes
-
-    def stop_tokenization():
-        tokenization['state'] = 'stopped'
-        tokenization['tokenizing'] = False
-        tokenization['tokens'].append((tokenization[token], tokenization[attributes])); 
-        
-    for letter in htmlstring:
-        if letter is '<':
-            start_tokenization()
-
-        if tokenization['tokenizing']: 
-            tokenization['token'] += letter
-
-        if letter is '>':
-            stop_tokenization()
 
     default_attributes : dict[str, any] = {"is_closing_tag": False, "test": True} 
     attributes : dict[str, any] = default_attributes.copy()
