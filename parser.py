@@ -6,7 +6,7 @@ import parser_library
 
 
 
-def htmltotokens(htmlstring : str):
+def htmltotokens(htmlstring : str = None):
     token  : str = None
     tokens : list[str] = []
     letter : str = None
