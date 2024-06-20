@@ -19,7 +19,7 @@ def htmltotokens(htmlstring : str = None):
     'state'     : 'stopped',
     'tokenizing':  False,
     'token'     :  None,
-    'tokens    ':  [],
+    'tokens'    :  [],
     'attributes':  default_attributes.copy()
     }
 
@@ -32,8 +32,6 @@ def htmltotokens(htmlstring : str = None):
     def stop_tokenization():
         tokenization['state'] = 'stopped'
         tokenization['tokenizing'] = False
-        if 'tokens' not in tokenization:
-            tokenization['tokens'] = []
 
     def tokenize():
         for letter in htmlstring:
