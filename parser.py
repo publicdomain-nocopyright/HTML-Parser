@@ -6,6 +6,7 @@ import parser_library
 
 
 
+
 def htmltotokens(htmlstring : str = None):
     token  : str = None
     tokens : list[str] = []
@@ -19,9 +20,9 @@ def htmltotokens(htmlstring : str = None):
     # Tag Scanning, processing, tokenization, html tag-markers (<>) and tag-name (<somename>) capture
     for letter in htmlstring:
         if letter is '<': 
-            token = None
+            tokenizing = True 
+            token = None; 
             attributes = default_attributes.copy();
-            tokenizing = True; 
             continue
         
 
