@@ -16,6 +16,7 @@ def htmltotokens(htmlstring : str = None):
 
 
     # Capture tokens
+    # Tokenization definition
     tokenization : dict[str,any]
     tokenization = {
     'state'     : 'stopped',
