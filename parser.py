@@ -19,7 +19,7 @@ def htmltotokens(htmlstring : str = None):
 
     # Tag Scanning, processing, tokenization, html tag-markers (<>) and tag-name (<somename>) capture
     for letter in htmlstring:
-        if letter is '<': 
+        if letter is '<': # Trigger tokenization
             tokenizing = True 
             token = None; 
             attributes = default_attributes.copy();
