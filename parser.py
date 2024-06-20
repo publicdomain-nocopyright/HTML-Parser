@@ -33,6 +33,10 @@ def htmltotokens(htmlstring : str = None):
         tokenization['state'] = 'stopped'
         tokenization['tokenizing'] = False
 
+    def textsweeping():
+        # Text sweeping is a technique of reading letters from one tag until another enclosing tag is met.
+        pass
+
     def tokenize():
         for letter in htmlstring:
             if letter == '<':
