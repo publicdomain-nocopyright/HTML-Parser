@@ -50,6 +50,8 @@ def htmltotokens(htmlstring : str = None):
                 if tokenization['token'] is None:
                     tokenization['token'] = ""
                 tokenization['token'] += letter
+                if letter == '/':
+                    tokenization["attributes"]["is_closing_tag"] = True
 
             if letter == '>':
                 stop_tokenization()
