@@ -15,8 +15,7 @@ def htmltotokens(htmlstring : str = None):
     letter : str = None
 
 
-    # Capture tokens
-    # Tokenization definition
+    # Tokenization definition, Capture tokens
     tokenization : dict[str,any]
     tokenization = {
     'state'     : 'stopped',
