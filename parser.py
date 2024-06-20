@@ -11,7 +11,7 @@ def htmltotokens(htmlstring : str):
     tokens : list[str] = []
     letter : str = None
 
-    default_attributes : dict[str, any] = {"is_closing_tag": False, "waffles": 5} 
+    default_attributes : dict[str, any] = {"is_closing_tag": False, "test": True} 
     attributes : dict[str, any] = default_attributes.copy()
 
     tokenizing : bool = False
