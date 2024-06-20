@@ -11,7 +11,7 @@ import parser_library
 
 def htmltotokens(htmlstring : str = None):
 
-    default_attributes : dict[str, any] = {"is_closing_tag": False, "test": True} 
+    default_attributes : dict[str, any] = {"is_closing_tag": False, 'text': 'some text',"test": True} 
 
 
     # Tokenization definition, Capture tokens
@@ -60,5 +60,6 @@ def htmltotokens(htmlstring : str = None):
     return tokenization["tokens"]
 tokens = htmltotokens(parser_library.htmltostring("example.html"))
 
-print(tokens)
+import pprint
+pprint.pprint(tokens)
     
