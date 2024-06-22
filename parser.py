@@ -12,6 +12,8 @@ from parser_library import exe
 
 def htmltotokens(htmlstring : str = None):
 
+
+    ###____________________Tokenizer_____________________###
     default_attributes : dict[str, any] = {"is_closing_tag": False} 
 
     # Tokenization definition, Capture tokens
