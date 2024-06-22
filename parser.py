@@ -1,6 +1,7 @@
 # parser.py - main project file.
 #   Tokenization is the process of splitting text into smaller units called tokens, typically words or phrases, for further analysis.
 import parser_library
+from parser_library import exe
 
 
 # Tokenization is needed to easily select tokens and group, target them against other tokens.
@@ -37,6 +38,7 @@ def htmltotokens(htmlstring : str = None):
         # Text sweeping is a technique of reading letters from one tag until another enclosing tag is met.
         pass
 
+    @exe
     def tokenize():
         for letter in htmlstring:
             if letter == '<':
@@ -58,7 +60,7 @@ def htmltotokens(htmlstring : str = None):
                     print(letter, end="")
 
 
-    tokenize()
+
     return tokenization["tokens"]
 tokens = htmltotokens(parser_library.htmltostring("example.html"))
 

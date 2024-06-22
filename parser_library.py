@@ -7,3 +7,11 @@ def htmltostring(textfile):
                     continue
                 textstring += letter
     return textstring
+
+
+# self-executing function for function decorator
+def exe(func):
+    func()
+    return func
+    
+    
