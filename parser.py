@@ -38,7 +38,7 @@ def htmltotokens(htmlstring : str = None):
         # Text sweeping is a technique of reading letters from one tag until another enclosing tag is met.
         pass
 
-    @exe
+    
     def tokenize():
         for letter in htmlstring:
             if letter == '<':
@@ -58,10 +58,12 @@ def htmltotokens(htmlstring : str = None):
             if not tokenization['tokenizing']:
                 if letter != '>':
                     print(letter, end="")
+                    
+        return tokenization["tokens"]
 
 
 
-    return tokenization["tokens"]
+    return tokenize()
 tokens = htmltotokens(parser_library.htmltostring("example.html"))
 
 import pprint
