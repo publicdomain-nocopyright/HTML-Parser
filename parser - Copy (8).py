@@ -40,61 +40,32 @@ def htmltotokens(htmlstring : str = None):
         # Text sweeping is a technique of reading letters from one tag until another enclosing tag is met.
         pass
 
-    from itertools import cycle
-    tag_mark = cycle([True, False])
-            
-
-    # find the '<', lock up until next time called, 'unlock' when encountering '>' but include as well.
-    def addup():
-        yield tag_mark 
-        
-
-        yield letter 
-        letter = ''
-        pass
     
     def tokenize():
-        tag = False
-        for letter in htmlstring:            
+        for letter in htmlstring:
+            if letter == '<':
+                start_tokenization()
 
-            
-            if letter == '<' or letter == '>': tag = next(tag_mark)
-            if tag:
-                print(letter, end="")
+            if tokenization['tokenizing']: 
+                tokenization['token'] += letter
+                if letter == '/':
+                    tokenization["attributes"]["is_closing_tag"] = True
 
-                #start_tokenization()
-            #else:
-
-
-            #if tag_mark:
-                #stop_tokenization()
-                #print(tokenization['tokens'], end="")
-                #tokenization['tokens'].append( [tokenization["token"], tokenization["attributes"]] )
-
-            #if tokenization['tokenizing']: 
-            #   tokenization['token'] += letter
-
-        return tokenization["tokens"]
-    return tokenize()
-
-            #    if letter == '/':
-            #        tokenization["attributes"]["is_closing_tag"] = True
-
-            #if letter == '>':
-            #    stop_tokenization()
-            #    tokenization['tokens'].append( [tokenization["token"], tokenization["attributes"]] ); 
-
-            #if not tokenization['tokenizing']:
-            #    if letter != '>' or letter != '<':
-            #        texttag=True
+            if letter == '>':
+                stop_tokenization()
+                tokenization['tokens'].append( [tokenization["token"], tokenization["attributes"]] ); 
+    
+            if not tokenization['tokenizing']:
+                if letter != '>' or letter != '<':
+                    texttag=True
                     #print(letter, end="")
 
 
             
 
-        
+        return tokenization["tokens"]
 
-
+    return tokenize()
 
 tokens = htmltotokens(parser_library.htmltostring("example.html"))
 
