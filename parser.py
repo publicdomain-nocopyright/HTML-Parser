@@ -45,6 +45,7 @@ def htmltotokens(htmlstring : str = None):
             
 
     # find the '<', lock up until next time called, 'unlock' when encountering '>' but include as well.
+    # The cycle technique does not have enforcement of < matching the > tagmark and would go over and mix up.
     def addup():
         yield tag_mark 
         
