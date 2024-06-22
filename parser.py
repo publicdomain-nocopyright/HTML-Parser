@@ -42,6 +42,8 @@ def htmltotokens(htmlstring : str = None):
 
     
     def tokenize():
+        texttagopen = False
+        texttag= False
         for letter in htmlstring:
             if letter == '<':
                 start_tokenization()
@@ -57,7 +59,23 @@ def htmltotokens(htmlstring : str = None):
     
             if not tokenization['tokenizing']:
                 if letter != '>':
-                    print(letter, end="")
+                    texttag=True
+                    #print(letter, end="")
+                if texttag:
+                    tokenization['token'] = "<text>"
+                    texttag = False
+                    texttagopen = True
+                if texttagopen:
+                    tokenization['token'] += letter
+                if letter == '>' and texttagopen:
+                    tokenization['token'] += "</text>"
+                    texttagopen = False
+                    tokenization['tokens'].append( [tokenization["token"], tokenization["attributes"]] ); 
+
+            
+
+
+            
 
         return tokenization["tokens"]
 
