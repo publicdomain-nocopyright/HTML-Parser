@@ -29,7 +29,7 @@ def htmltotokens(htmlstring : str = None):
     def start_tokenization():
         tokenization['state'] = 'running'
         tokenization['tokenizing'] = True
-        tokenization['token'] = None 
+        tokenization['token'] = "" 
         tokenization['attributes'] = default_attributes.copy() 
 
     def stop_tokenization():
@@ -47,8 +47,6 @@ def htmltotokens(htmlstring : str = None):
                 start_tokenization()
 
             if tokenization['tokenizing']: 
-                if tokenization['token'] is None:
-                    tokenization['token'] = ""
                 tokenization['token'] += letter
                 if letter == '/':
                     tokenization["attributes"]["is_closing_tag"] = True
