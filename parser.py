@@ -58,12 +58,11 @@ def htmltotokens(htmlstring : str = None):
             if not tokenization['tokenizing']:
                 if letter != '>':
                     print(letter, end="")
-                    
+
         return tokenization["tokens"]
 
-
-
     return tokenize()
+
 tokens = htmltotokens(parser_library.htmltostring("example.html"))
 
 import pprint
