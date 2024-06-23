@@ -58,8 +58,8 @@ def htmltotokens(htmlstring : str = None):
     def tokenize():
         tag = False
         for letter in htmlstring:            
-
-            
+            # if letter == '<' or letter == '>': add(letter)
+            # if letter == '<' or letter == '>': scan(letter)
             if letter == '<' or letter == '>': tag = next(tag_mark)
             if tag:
                 print(letter, end="")
