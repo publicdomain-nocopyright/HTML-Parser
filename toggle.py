@@ -1,3 +1,5 @@
+# Toggle must be aware of its value in the context.
+
 def toggle():
     state = True
     while True:
