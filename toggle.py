@@ -17,6 +17,7 @@ print(next(toggle_gen))  # Output: False
 print(next(toggle_gen))  # Output: True
 
 # toggle() - returns False or True depending if used before in the context.
+# The toggle function works on a context level and does not need an argument to be passed to it.
 def toggle():
     # Initialize a variable to keep track of state
     state = False
