@@ -1,5 +1,5 @@
 # Toggle must be aware of its value in the context instead of being global variable. If a different function call, it should reset itself. It should be unique to each function.
-# toggle() - returns False or True depending if used before.
+# toggle() - returns False or True depending if used before in the context.
 def togglere():
     state = True
     while True:
