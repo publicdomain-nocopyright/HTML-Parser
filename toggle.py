@@ -1,5 +1,5 @@
 # Toggle must be aware of its value in the context instead of being global variable. If a different function call, it should reset itself. It should be unique to each function.
-# toggle() - returns False or True depending if used before in the context.
+
 def togglere():
     state = True
     while True:
@@ -16,15 +16,18 @@ print(next(toggle_gen))  # Output: True
 print(next(toggle_gen))  # Output: False
 print(next(toggle_gen))  # Output: True
 
-
+# toggle() - returns False or True depending if used before in the context.
 def toggle():
     # Initialize a variable to keep track of state
     state = False
+    count = 0
     
     def inner():
         nonlocal state  # Use nonlocal to modify the state variable in the enclosing scope
+        nonlocal count
+        count = count +1
         state = not state  # Toggle the state (True becomes False, False becomes True)
-        return state  # Return the toggled state
+        return count  # Return the toggled state
     
     return inner  # Return the inner function
 
