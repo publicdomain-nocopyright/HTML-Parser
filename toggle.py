@@ -16,5 +16,22 @@ print(next(toggle_gen))  # Output: True
 print(next(toggle_gen))  # Output: False
 print(next(toggle_gen))  # Output: True
 
+
 def toggle():
-    pass
+    # Initialize a variable to keep track of state
+    state = False
+    
+    def inner():
+        nonlocal state  # Use nonlocal to modify the state variable in the enclosing scope
+        state = not state  # Toggle the state (True becomes False, False becomes True)
+        return state  # Return the toggled state
+    
+    return inner  # Return the inner function
+
+# Example usage:
+toggle_func = toggle()
+
+print(toggle_func())  # First call, returns True
+print(toggle_func())  # Second call, returns False
+print(toggle_func())  # Third call, returns True
+
