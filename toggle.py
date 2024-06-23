@@ -1,4 +1,4 @@
-# Toggle must be aware of its value in the context.
+# Toggle must be aware of its value in the context. If a different function call, it should reset itself.
 
 def toggle():
     state = True
