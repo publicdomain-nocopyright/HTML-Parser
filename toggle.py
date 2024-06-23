@@ -1,4 +1,4 @@
-# Toggle must be aware of its value in the context. If a different function call, it should reset itself. It should be unique to each function.
+# Toggle must be aware of its value in the context instead of global variable. If a different function call, it should reset itself. It should be unique to each function.
 
 def togglere():
     state = True
@@ -15,3 +15,6 @@ print(next(toggle_gen))  # Output: True
 # Subsequent calls to toggle state
 print(next(toggle_gen))  # Output: False
 print(next(toggle_gen))  # Output: True
+
+def toggle():
+    pass
