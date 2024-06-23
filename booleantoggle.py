@@ -5,6 +5,7 @@ def boolean_toggle():
 	booleanstate = not booleanstate
 	return booleanstate
     
-    
-print(toggle = boolean_toggle())
-print(toggle = boolean_toggle())
+toggle = boolean_toggle()
+print(toggle)
+toggle = boolean_toggle()
+print(toggle)
