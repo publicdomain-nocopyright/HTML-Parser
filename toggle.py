@@ -31,7 +31,13 @@ def toggle():
 # Example usage:
 toggle_func = toggle()
 
+print("----")
 print(toggle_func())  # First call, returns True
-print(toggle_func())  # Second call, returns False
-print(toggle_func())  # Third call, returns True
 
+
+
+def ter():
+    print(toggle_func())  # Second call, returns False
+    print(toggle_func())  # Third call, returns True
+ter()
+print(toggle_func())  # Third call, returns True
