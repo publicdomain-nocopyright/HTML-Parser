@@ -50,7 +50,7 @@ def tokenizer():
             text = '<text>'
             start_text = True
             
-        if not htmltag and start_text:  
+        if not htmltag and start_text == False:  
             text += letter
 
     if text:  
