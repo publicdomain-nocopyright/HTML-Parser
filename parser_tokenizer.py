@@ -86,7 +86,57 @@ def tokenizer():
 
     print(tokens)
 
+#TODO: Nested level counting. Associate html tag with nest level.
 
+def tokenizer():
+    token = ''
+    tokens = []
+    htmltag = False
+    text = ''
+    start_text = False  
+
+    def start_text():
+        nonlocal text
+        nonlocal start_text
+        start_text = True
+        text = ''
+
+    nesting_level = 0 
+
+    #htmlfile().loadtostring()
+    for letter in htmltostring("example.html"):
+
+        if letter == '/':
+            nesting_level -= 1 
+        if text != '' and letter == '<':
+            tokens.append('<htmltext>' + text + '</htmltext>')
+            text = ''
+
+        if letter == '<': htmltag = True;  token = ''; continue
+        if letter == '>': 
+            htmltag = False; 
+            tokens.append(token)
+
+            nesting_level += 1 
+            continue
+
+        if htmltag:
+            token += letter
+        if not htmltag: 
+            if not start_text: 
+                start_text()
+            if start_text:
+                text += letter
+
+
+    print(tokens)
+    print(nesting_level)
+
+
+
+
+def simplestatemachine():
+    pass
 
 
 
