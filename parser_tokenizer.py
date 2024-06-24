@@ -63,7 +63,6 @@ def tokenizer():
         nonlocal start_text
         start_text = True
         text = ''
-        nesting_level = 0 
 
     #htmlfile().loadtostring()
     for letter in htmltostring("example.html"):
