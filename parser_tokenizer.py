@@ -36,15 +36,8 @@ def tokenizer():
             tokens.append('<text>' + text + '</text>')
             text = ''
 
-        if letter == '<':
-            token = ''
-            htmltag = True
-            continue
-
-        if letter == '>':
-            htmltag = False
-            tokens.append(token)
-            continue
+        if letter == '<': htmltag = True;  token = ''; continue
+        if letter == '>': htmltag = False; tokens.append(token); continue
 
         if htmltag:
             token += letter
