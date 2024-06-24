@@ -18,6 +18,7 @@ def tokenizer():
         pass
     print(tokens)
 
+#INFO: HTML Tag: <somename> Consist of: <> tag markers and tag-name: somename
 #DONE: capture text in <text> tags
 #TODO: Match tag with another tag by tag nesting level.
 @execute
