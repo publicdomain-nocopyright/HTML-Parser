@@ -22,7 +22,6 @@ def tokenizer():
 
 
 #DONE: capture text in <text> tags
-@execute
 def tokenizer():
     token = ''
     tokens = []
@@ -43,9 +42,44 @@ def tokenizer():
         if htmltag:
             token += letter
         if not htmltag: 
-            if not start_text:
-                start_text = True
-                text = ''
+            if not start_text: start_text = True; text = ''
+                
+            text += letter
+
+
+    print(tokens)
+
+#TODO: Improve start_text
+@execute
+def tokenizer():
+    token = ''
+    tokens = []
+    htmltag = False
+    text = ''
+    start_text = False  
+
+    def start_text():
+        nonlocal text
+        nonlocal start_text
+        start_text = True
+        text = ''
+
+    #htmlfile().loadtostring()
+    for letter in htmltostring("example.html"):
+
+        if text != '' and letter == '<':
+            tokens.append('<text>' + text + '</text>')
+            text = ''
+
+        if letter == '<': htmltag = True;  token = ''; continue
+        if letter == '>': htmltag = False; tokens.append(token); continue
+
+        if htmltag:
+            token += letter
+        if not htmltag: 
+            if not start_text: 
+                start_text()
+                
             text += letter
 
 
