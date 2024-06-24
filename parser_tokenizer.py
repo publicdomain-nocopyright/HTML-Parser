@@ -37,13 +37,13 @@ def tokenizer():
             text = ''
 
         if letter == '<':
+            token = ''
             htmltag = True
             continue
 
         if letter == '>':
             htmltag = False
             tokens.append(token)
-            token = ''
             continue
 
         if htmltag:
