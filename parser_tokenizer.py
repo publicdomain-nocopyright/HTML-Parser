@@ -68,7 +68,7 @@ def tokenizer():
     for letter in htmltostring("example.html"):
 
         if text != '' and letter == '<':
-            tokens.append('<text>' + text + '</text>')
+            tokens.append('<htmltext>' + text + '</htmltext>')
             text = ''
 
         if letter == '<': htmltag = True;  token = ''; continue
