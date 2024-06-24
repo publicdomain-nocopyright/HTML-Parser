@@ -27,6 +27,7 @@ def tokenizer():
     text = ''
     start_text = False  
 
+    #TODO: Match tag with another tag by tag nest level.
     for letter in htmltostring("example.html"):
 
         if letter == '<' and text:
