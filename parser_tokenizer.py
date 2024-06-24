@@ -1,5 +1,6 @@
 
 from parser_library import *
+# Single pass parser, but for simplicity a multipass parser might be better.
 #INFO: HTML Tag: <somename> Consist of: <> tag markers and tag-name: somename
 #INFO: HTML Tag can have a HTML Attribute with <somename attribute=""> and without <somename attribute> value assignment
 #TODO: Match Tag with another Tag by Tag-Nesting-level.
