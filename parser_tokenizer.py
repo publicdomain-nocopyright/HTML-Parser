@@ -30,34 +30,34 @@ def tokenizer():
     text = ''
     start_text = False  
 
-
     for letter in htmltostring("example.html"):
 
-        if letter == '<' and text:
-            if text:  
-                text += '</text>'
-                tokens.append(text)
+        if letter == '<':
+            htmltag = True
+            if text:
+                tokens.append('<text>' + text + '</text>')
                 text = ''
-            start_text = False  
+            continue
 
-        if letter == '<': htmltag = True; continue
-        if letter == '>': htmltag = False; tokens.append(token);token = '' ; continue           
-        
+        if letter == '>':
+            htmltag = False
+            tokens.append(token)
+            token = ''
+            continue
+
         if htmltag:
             token += letter
-
-        if not htmltag and start_text == False:
-            text = '<text>'
-            start_text = True
-            
-        if not htmltag and start_text == False:  
+        else:
+            if not start_text:
+                start_text = True
+                text = ''
             text += letter
 
-    if text:  
-        text += '</text>'
-        tokens.append(text)
+    if text:
+        tokens.append('<text>' + text + '</text>')
     
     print(tokens)
+
 
 
 
