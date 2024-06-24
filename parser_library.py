@@ -10,7 +10,7 @@ def htmltostring(textfile):
 
 
 # self-executing function for function decorator
-def exe(func):
+def execute(func):
     func()
     return func
     
