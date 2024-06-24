@@ -18,7 +18,8 @@ def tokenizer():
         pass
     print(tokens)
 
-
+#DONE: capture text in <text> tags
+#TODO: Match tag with another tag by tag nesting level.
 @execute
 def tokenizer():
     token = ''
@@ -27,7 +28,7 @@ def tokenizer():
     text = ''
     start_text = False  
 
-    #TODO: Match tag with another tag by tag nest level.
+
     for letter in htmltostring("example.html"):
 
         if letter == '<' and text:
