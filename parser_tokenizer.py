@@ -2,6 +2,7 @@
 from parser_library import *
 #INFO: HTML Tag: <somename> Consist of: <> tag markers and tag-name: somename
 #INFO: HTML Tag can have a HTML Attribute with <somename attribute=""> and without <somename attribute> value assignment
+#TODO: Match tag with another Tag by Tag-Nesting-level.
 
 def tokenizer():
     token = ''
@@ -58,7 +59,7 @@ def tokenizer():
     
     print(tokens)
 
-#TODO: Match tag with another tag by tag nesting level.
+
 
 
 def simplestatemachine():
