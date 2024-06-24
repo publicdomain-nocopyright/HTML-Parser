@@ -79,8 +79,8 @@ def tokenizer():
         if not htmltag: 
             if not start_text: 
                 start_text()
-                
-            text += letter
+            if start_text:
+                text += letter
 
 
     print(tokens)
