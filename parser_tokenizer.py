@@ -54,9 +54,7 @@ def tokenizer():
                 text = ''
             text += letter
 
-    if text:
-        tokens.append('<text>' + text + '</text>')
-    
+
     print(tokens)
 
 
