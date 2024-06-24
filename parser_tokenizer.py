@@ -32,11 +32,12 @@ def tokenizer():
 
     for letter in htmltostring("example.html"):
 
+        if text != '' and letter == '<':
+            tokens.append('<text>' + text + '</text>')
+            text = ''
+
         if letter == '<':
             htmltag = True
-            if text:
-                tokens.append('<text>' + text + '</text>')
-                text = ''
             continue
 
         if letter == '>':
