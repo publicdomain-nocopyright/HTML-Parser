@@ -30,6 +30,7 @@ def tokenizer():
     text = ''
     start_text = False  
 
+    #htmlfile().loadtostring()
     for letter in htmltostring("example.html"):
 
         if text != '' and letter == '<':
