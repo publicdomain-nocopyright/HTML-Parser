@@ -10,8 +10,12 @@ def htmltostring(textfile):
 
 
 # self-executing function for function decorator
+# @execute
 def execute(func):
     func()
     return func
     
-    
+def Empty(string):
+    return string == ""
+
+# if Empty(my_string):

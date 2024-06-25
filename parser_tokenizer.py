@@ -50,7 +50,7 @@ def tokenizer():
     print(tokens)
 
 #TODO: Improve start_text
-@execute
+
 def tokenizer():
     token = ''
     tokens = []
@@ -139,5 +139,28 @@ def simplestatemachine():
 
 
 
-def simplestatemachine():
+#Latest TODO: Improve start_text
+
+
+@execute
+def tokenize():
+    string = "Hel<test>lo!</test>"
+    index = 0
+    tokenOn = False
+    tokens = []
+    token = ''
+    while index < len(string):
+        if string[index] == '<': tokenOn = True 
+        if tokenOn:
+            token += string[index]
+        if string[index] == '>': 
+            tokenOn = False 
+            tokens.append(token)
+            token = ''
+
+        #print(string[index], end="")
+
+        index += 1
+    print(tokens)
+    
     pass
